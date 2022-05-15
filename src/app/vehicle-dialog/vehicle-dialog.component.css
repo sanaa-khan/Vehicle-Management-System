@@ -1,0 +1,55 @@
+h2 {
+  text-transform: uppercase;
+  border-bottom: 0.5px solid black;
+  padding: 5px;
+}
+
+img {
+  height: 400px;
+  width: 500px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.vehicle-initial-content {
+  display: flex;
+}
+
+.vehicle-initial-content div {
+  margin: 10px;
+}
+
+.descriptor {
+  font-weight: bold;
+}
+
+button {
+  background-color: black;
+  color: white;
+  transition: 0.4s ease-in-out;
+}
+
+button:hover {
+  background-color: teal;
+  cursor: grabbing;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

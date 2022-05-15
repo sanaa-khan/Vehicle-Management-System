@@ -1,0 +1,106 @@
+body {
+}
+
+.content {
+  padding: 16px;
+}
+
+.content > mat-card {
+  width: 250px;
+  justify-content: center;
+}
+
+.search {
+  margin-bottom: 3%;
+  margin-top: 3%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 10px;
+}
+
+mat-toolbar {
+  color: teal;
+  letter-spacing: 1.5px;
+  padding: 10px;
+  font-size: 50px;
+  height: 80px;
+}
+
+mat-form-field {
+  margin: 10px;
+}
+
+mat-form-field input {
+  color: black;
+}
+
+mat-card {
+  padding: 25px;
+  opacity: 0.9;
+  transition: 0.4s ease-in-out;
+  margin: 20px;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+mat-card:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+mat-toolbar {
+  display: flex;
+  justify-content: left;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 3%;
+  padding-right: 3%;
+  background-color: rgba(0, 0, 0, 1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position: sticky;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+mat-card img {
+  width: 200px;
+  height: 150px;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+
+button {
+  background-color: black;
+  color: white;
+  transition: 0.4s ease-in-out;
+}
+
+button:hover {
+  background-color: teal;
+  cursor: grabbing;
+}
+
+.descriptor {
+  font-weight: bold;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
