@@ -2,6 +2,7 @@
 const cors = require('cors');
 const mongo = require('mongodb');
 const express = require('express');
+const {ObjectId} = require("mongodb");
 
 // connect to mongodb
 const url = "mongodb://localhost:27017";
@@ -22,10 +23,22 @@ app.get('/getAllVehicles', function (req, res) {
       .find()
       .toArray(function (err, items) {
         if (err) throw err;
-        //console.log(items);
         res.send(items);
       });
   })
+})
+
+// delete a vehicle
+app.post('/deleteVehicle', function (req, res) {
+  mongoClient.connect(function (err, client) {
+    const db = client.db(dbName);
+    const query = { _id: ObjectId(req.query.id) };
+    db.collection(vehicleCollectionName).deleteOne(query).
+    then(result => {
+      console.log(result);
+      res.send(result);
+    });
+  });
 })
 
 // set up server

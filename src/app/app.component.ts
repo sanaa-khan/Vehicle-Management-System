@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
-import {VehicleDialogComponent} from "./vehicle-dialog/vehicle-dialog.component";
+import {VehicleDetailsDialogComponent} from "./vehicle-dialog/vehicle-details-dialog/vehicle-details-dialog.component";
+import {Title} from "@angular/platform-browser";
 
 export interface VEHICLE {
+  _id: any;
   title: string;
   img_path: string;
   price: number;
@@ -50,8 +52,18 @@ export class AppComponent {
   vehicles: VEHICLE[] = [];
   allVehicles: VEHICLE[] = [];
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog, private titleService: Title) {
+    this.titleService.setTitle("Vehicle Market");
+    this.getAllVehicles();
+  }
+
+  ngOnInit(): void {
+  }
+
+  getAllVehicles(): void {
+
     this.vehicles = [];
+
     const requestOptions = {
       method: 'GET',
     };
@@ -62,11 +74,6 @@ export class AppComponent {
         this.vehicles = JSON.parse(result);
       })
       .catch(error => console.log('Error: ', error));
-  }
-
-  ngOnInit(): void {
-    console.log("vehicles:");
-    console.log(this.vehicles);
   }
 
   filterVehicles() {
@@ -122,7 +129,7 @@ export class AppComponent {
 
   }
 
-  openDialog(selectedVehicle: VEHICLE) {
+  openDetailsDialog(selectedVehicle: VEHICLE) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.hasBackdrop = true;
@@ -131,6 +138,26 @@ export class AppComponent {
       vehicle: selectedVehicle
     };
 
-    this.dialog.open(VehicleDialogComponent, dialogConfig);
+    this.dialog.open(VehicleDetailsDialogComponent, dialogConfig);
+  }
+
+  openUpdateDialog(selectedVehicle: VEHICLE) {
+    console.log('in update dialog function');
+  }
+
+  deleteVehicle(selectedVehicle: VEHICLE) {
+    console.log('In delete vehicle function');
+
+    const requestOptions = {
+      method: 'POST',
+    };
+
+    fetch('http://localhost:3000/deleteVehicle?id=' + selectedVehicle._id, requestOptions)
+      .then(response => response.text())
+      .then(result => {
+        console.log(result);
+        this.getAllVehicles();
+      })
+      .catch(error => console.log('error', error));
   }
 }

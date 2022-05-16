@@ -49,6 +49,10 @@ mat-card:hover {
   transform: scale(1.1);
 }
 
+mat-card-actions {
+  justify-content: center;
+}
+
 mat-toolbar {
   display: flex;
   justify-content: left;
@@ -83,6 +87,23 @@ button:hover {
 
 .descriptor {
   font-weight: bold;
+}
+
+.add-button {
+  background-color: whitesmoke;
+  width: 150px;
+  color: black;
+  text-transform: uppercase;
+  font-size: 16px;
+  ftext-align: right;
+  align-items: end;
+  margin: 0px 0px 0px auto;
+}
+
+.add-button:hover {
+  background-color: teal;
+  cursor: grabbing;
+  color: whitesmoke;
 }
 
 /* width */

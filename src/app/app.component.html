@@ -4,6 +4,7 @@
 
   <mat-toolbar>
     Vehicle Market
+    <button mat-button ngClass="add-button">Add Vehicle</button>
   </mat-toolbar>
 
   <div class="search">
@@ -112,7 +113,9 @@
             </mat-grid-list>
           </mat-card-content>
           <mat-card-actions>
-            <button mat-button (click)="openDialog(vehicles[i])">View Details</button>
+            <button mat-button (click)="openDetailsDialog(vehicles[i])">Details</button>
+            <button mat-button (click)="openUpdateDialog(vehicles[i])">Update</button>
+            <button mat-button (click)="deleteVehicle(vehicles[i])">Delete</button>
           </mat-card-actions>
         </mat-card>
       </div>

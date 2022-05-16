@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VehicleDialogComponent } from './vehicle-dialog.component';
+import { VehicleDetailsDialogComponent } from './vehicle-details-dialog.component';
 
 describe('VehicleDialogComponent', () => {
-  let component: VehicleDialogComponent;
-  let fixture: ComponentFixture<VehicleDialogComponent>;
+  let component: VehicleDetailsDialogComponent;
+  let fixture: ComponentFixture<VehicleDetailsDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VehicleDialogComponent ]
+      declarations: [ VehicleDetailsDialogComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VehicleDialogComponent);
+    fixture = TestBed.createComponent(VehicleDetailsDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

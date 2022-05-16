@@ -7,6 +7,7 @@ import { MatDialogModule} from "@angular/material/dialog";
 import { MatCardModule} from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import {MatGridListModule} from "@angular/material/grid-list";
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
@@ -14,13 +15,16 @@ import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {FormsModule} from "@angular/forms";
 
-import { VehicleDialogComponent } from './vehicle-dialog/vehicle-dialog.component';
-import {MatGridListModule} from "@angular/material/grid-list";
+import { VehicleDetailsDialogComponent } from './vehicle-dialog/vehicle-details-dialog/vehicle-details-dialog.component';
+import { VehicleAddDialogComponent } from './vehicle-dialog/vehicle-add-dialog/vehicle-add-dialog.component';
+import { VehicleUploadDialogComponent } from './vehicle-dialog/vehicle-upload-dialog/vehicle-upload-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    VehicleDialogComponent,
+    VehicleDetailsDialogComponent,
+    VehicleAddDialogComponent,
+    VehicleUploadDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +43,6 @@ import {MatGridListModule} from "@angular/material/grid-list";
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [VehicleDialogComponent]
+  entryComponents: [VehicleDetailsDialogComponent, VehicleAddDialogComponent, VehicleUploadDialogComponent]
 })
 export class AppModule { }

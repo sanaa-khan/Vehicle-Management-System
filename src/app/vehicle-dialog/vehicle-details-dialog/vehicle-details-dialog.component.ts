@@ -1,19 +1,19 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
-import { VEHICLE } from '../app.component';
+import { VEHICLE } from '../../app.component';
 
 @Component({
-  selector: 'app-vehicle-dialog',
-  templateUrl: './vehicle-dialog.component.html',
-  styleUrls: ['./vehicle-dialog.component.css']
+  selector: 'app-vehicle-details-dialog',
+  templateUrl: './vehicle-details-dialog.component.html',
+  styleUrls: ['./vehicle-details-dialog.component.css']
 })
 
-export class VehicleDialogComponent implements OnInit {
+export class VehicleDetailsDialogComponent implements OnInit {
   public vehicle: VEHICLE;
 
   constructor(
-    private dialogRef: MatDialogRef<VehicleDialogComponent>,
+    private dialogRef: MatDialogRef<VehicleDetailsDialogComponent>,
     @Inject(MAT_DIALOG_DATA) data: any) {
 
       this.vehicle = data.vehicle
