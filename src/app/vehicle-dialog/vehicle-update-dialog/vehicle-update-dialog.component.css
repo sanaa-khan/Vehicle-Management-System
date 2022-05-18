@@ -11,10 +11,6 @@ img {
   border-radius: 10px;
 }
 
-mat-dialog-content {
-  width: 550px;
-}
-
 .vehicle-initial-content {
   display: flex;
 }
@@ -25,10 +21,6 @@ mat-dialog-content {
 
 .descriptor {
   font-weight: bold;
-}
-
-.body {
-  width: 550px;
 }
 
 button {

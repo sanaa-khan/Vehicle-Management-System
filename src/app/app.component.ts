@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {VehicleDetailsDialogComponent} from "./vehicle-dialog/vehicle-details-dialog/vehicle-details-dialog.component";
 import {VehicleAddDialogComponent} from "./vehicle-dialog/vehicle-add-dialog/vehicle-add-dialog.component";
+import {VehicleUpdateDialogComponent} from "./vehicle-dialog/vehicle-update-dialog/vehicle-update-dialog.component";
 import {Title} from "@angular/platform-browser";
 
 export interface VEHICLE {
@@ -149,7 +150,15 @@ export class AppComponent {
   }
 
   openUpdateDialog(selectedVehicle: VEHICLE) {
-    console.log('in update dialog function');
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.hasBackdrop = true;
+
+    dialogConfig.data = {
+      vehicle: selectedVehicle
+    };
+
+    this.viewDialog.open(VehicleUpdateDialogComponent, dialogConfig);
   }
 
   openAddDialog() {
@@ -167,7 +176,6 @@ export class AppComponent {
   }
 
   deleteVehicle(selectedVehicle: VEHICLE) {
-    console.log('In delete vehicle function');
 
     const requestOptions = {
       method: 'POST',

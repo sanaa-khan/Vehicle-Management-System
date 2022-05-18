@@ -18,6 +18,7 @@ import {FormsModule} from "@angular/forms";
 import { VehicleDetailsDialogComponent } from './vehicle-dialog/vehicle-details-dialog/vehicle-details-dialog.component';
 import { VehicleAddDialogComponent } from './vehicle-dialog/vehicle-add-dialog/vehicle-add-dialog.component';
 import { VehicleUploadDialogComponent } from './vehicle-dialog/vehicle-upload-dialog/vehicle-upload-dialog.component';
+import { VehicleUpdateDialogComponent } from './vehicle-dialog/vehicle-update-dialog/vehicle-update-dialog.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { VehicleUploadDialogComponent } from './vehicle-dialog/vehicle-upload-di
     VehicleDetailsDialogComponent,
     VehicleAddDialogComponent,
     VehicleUploadDialogComponent,
+    VehicleUpdateDialogComponent,
   ],
   imports: [
     BrowserModule,
