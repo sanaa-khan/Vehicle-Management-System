@@ -54,6 +54,28 @@ app.post('/addVehicle', function (req, res) {
   });
 })
 
+// update vehicle
+app.post('/updateVehicle', function (req, res) {
+
+  const toUpdate = JSON.parse(req.query.toupdate);
+  const attribute = toUpdate.attribute;
+  const value = toUpdate.value;
+
+
+  mongoClient.connect(function (err, client) {
+    const db = client.db(dbName);
+
+    db.collection(vehicleCollectionName).updateOne(
+      { _id: ObjectId(req.query.id) },
+      { $set: { [attribute]: value } },
+      function (err, result) {
+        if (err) throw err;
+        console.log("Document Updated Successfully");
+      }
+    );
+  });
+})
+
 // set up server
 module.exports = app;
 app.listen(3000, () =>

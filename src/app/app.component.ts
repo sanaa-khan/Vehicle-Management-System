@@ -158,15 +158,17 @@ export class AppComponent {
       vehicle: selectedVehicle
     };
 
-    this.viewDialog.open(VehicleUpdateDialogComponent, dialogConfig);
+    let dialogRef = this.viewDialog.open(VehicleUpdateDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(res => {
+      this.getAllVehicles();
+    })
   }
 
   openAddDialog() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.hasBackdrop = true;
-
-    this.viewDialog.open(VehicleAddDialogComponent, dialogConfig);
 
     let dialogRef = this.viewDialog.open(VehicleAddDialogComponent, dialogConfig);
 

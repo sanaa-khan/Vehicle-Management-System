@@ -27,7 +27,24 @@ export class VehicleUpdateDialogComponent implements OnInit {
   }
 
   update() {
-    console.log(this.attributeToUpdate, this.valueToUpdate);
+    let jsonObj = {
+      attribute: this.attributeToUpdate,
+      value: this.valueToUpdate
+    };
+
+    let jsonObjString = JSON.stringify(jsonObj);
+
+    const requestOptions = {
+      method: 'POST',
+    };
+
+    fetch('http://localhost:3000/updateVehicle?id=' + this.vehicle._id + "&toupdate=" + jsonObjString, requestOptions)
+      .then(response => response.text())
+      .then(result => {
+        console.log(result);
+      })
+      .catch(error => console.log('error', error));
+
     this.dialogRef.close();
   }
 
