@@ -15,6 +15,11 @@ mat-dialog-content {
   width: 550px;
 }
 
+mat-grid-list {
+  align-content: flex-start;
+  justify-content: left;
+}
+
 .vehicle-initial-content {
   display: flex;
 }

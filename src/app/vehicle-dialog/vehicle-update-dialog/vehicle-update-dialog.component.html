@@ -6,7 +6,7 @@
 
   <h3>{{vehicle.make}} {{vehicle.title}} {{vehicle.model}} - {{vehicle.year}}</h3>
 
-  <mat-grid-list cols="3" rowHeight="50px">
+  <mat-grid-list cols="3" rowHeight="35px">
     <mat-grid-tile><span class="descriptor">Price</span>: Rs. {{vehicle.price}}</mat-grid-tile>
     <mat-grid-tile><span class="descriptor">Location</span>: {{vehicle.location}}</mat-grid-tile>
     <mat-grid-tile><span class="descriptor">Model</span>: {{vehicle.model}}</mat-grid-tile>
@@ -24,13 +24,11 @@
     <mat-grid-tile><span class="descriptor">Last Updated</span>: {{vehicle.last_updated}}</mat-grid-tile>
   </mat-grid-list>
 
-  <hr><br>
+  <br>
 
   <div class="features">
     <span class="descriptor">Features</span>: {{vehicle.features}}
   </div>
-
-  <br>
 
   <div>
     <span class="descriptor">Overall Condition</span>: {{vehicle.condition}}
@@ -40,21 +38,139 @@
 
   <h3><b>Seller Information</b></h3>
 
-  <mat-grid-list cols="1" rowHeight="50px">
+  <mat-grid-list cols="1" rowHeight="30px">
     <mat-grid-tile><span class="descriptor">Contact No</span>: {{vehicle.seller_number}}</mat-grid-tile>
     <mat-grid-tile><span class="descriptor">Email</span>: {{vehicle.seller_email}}</mat-grid-tile>
     <mat-grid-tile><span class="descriptor">Location</span>: {{vehicle.seller_location}}</mat-grid-tile>
     <mat-grid-tile><span class="descriptor">Contact Hours</span>: {{vehicle.seller_hours}}</mat-grid-tile>
   </mat-grid-list>
 
-  <hr><br>
-
   <p><span class="descriptor">Comments on vehicle</span>: {{vehicle.seller_comments}}</p>
+
+  <br><hr><br>
+
+  <div class="update">
+    <mat-form-field>
+      <mat-label>Update Attribute</mat-label>
+      <mat-select [(value)]="attributeToUpdate" [(ngModel)]="attributeToUpdate">
+        <mat-option>None</mat-option>
+        <mat-option value="title">Title</mat-option>
+        <mat-option value="price">Price</mat-option>
+        <mat-option value="location">City</mat-option>
+        <mat-option value="date">Date</mat-option>
+        <mat-option value="rating">Rating</mat-option>
+        <mat-option value="make">Make</mat-option>
+        <mat-option value="type">Type</mat-option>
+        <mat-option value="model">Model</mat-option>
+        <mat-option value="transmission">Transmission</mat-option>
+        <mat-option value="mileage">Mileage</mat-option>
+        <mat-option value="color">Colour</mat-option>
+        <mat-option value="assembly">Assembly</mat-option>
+        <mat-option value="engine_capacity">Engine Capacity</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="attributeToUpdate=='title'">
+        <mat-label>Title</mat-label>
+      <input type="text" matInput [(ngModel)]="valueToUpdate">
+    </mat-form-field>
+
+    <mat-form-field *ngIf="attributeToUpdate=='price'">
+      <mat-label>Price</mat-label>
+      <input type="number"  matInput [(ngModel)]="valueToUpdate">
+    </mat-form-field>
+
+    <mat-form-field *ngIf="attributeToUpdate=='location'">
+      <mat-label>City</mat-label>
+      <mat-select [(ngModel)]="valueToUpdate">
+        <mat-option>None</mat-option>
+        <mat-option value="Islamabad">Islamabad</mat-option>
+        <mat-option value="Rawalpindi">Rawalpindi</mat-option>
+        <mat-option value="Lahore">Lahore</mat-option>
+        <mat-option value="Karachi">Karachi</mat-option>
+        <mat-option value="Peshawar">Peshawar</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="attributeToUpdate=='date'">
+      <mat-label>Date</mat-label>
+      <input type="number" maxlength=4 matInput [(ngModel)]="valueToUpdate">
+    </mat-form-field>
+
+    <mat-form-field *ngIf="attributeToUpdate=='rating'">
+      <mat-label>Rating</mat-label>
+      <mat-select  [(ngModel)]="valueToUpdate">
+        <mat-option>None</mat-option>
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+        <mat-option value="5">5</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="attributeToUpdate=='make'">
+      <mat-label>Make</mat-label>
+      <mat-select [(ngModel)]="valueToUpdate">
+        <mat-option>None</mat-option>
+        <mat-option value="Honda">Honda</mat-option>
+        <mat-option value="Suzuki">Suzuki</mat-option>
+        <mat-option value="Audi">Audi</mat-option>
+        <mat-option value="Diahatsu">Diahatsu</mat-option>
+        <mat-option value="Kia">Kia</mat-option>
+        <mat-option value="Hyundai">Hyundai</mat-option>
+        <mat-option value="Toyota">Toyota</mat-option>
+        <mat-option value="Nissan">Nissan</mat-option>
+        <mat-option value="Mitsubishi">Mitsubishi</mat-option>
+        <mat-option value="Subaru">Subaru</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="attributeToUpdate=='type'">
+      <mat-label>Type</mat-label>
+      <mat-select [(ngModel)]="valueToUpdate">
+        <mat-option>None</mat-option>
+        <mat-option value="Car">Car</mat-option>
+        <mat-option value="Bike">Bike</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="attributeToUpdate=='model'">
+      <mat-label>Model</mat-label>
+      <input type="text" matInput [(ngModel)]="valueToUpdate" placeholder="E.g. VXL">
+    </mat-form-field>
+
+    <mat-form-field *ngIf="attributeToUpdate=='transmission'">
+      <mat-label>Transmission</mat-label>
+      <input type="text" matInput [(ngModel)]="valueToUpdate" placeholder="E.g. manual">
+    </mat-form-field>
+
+    <mat-form-field *ngIf="attributeToUpdate=='mileage'">
+      <mat-label>Mileage</mat-label>
+      <input type="number" matInput [(ngModel)]="valueToUpdate" placeholder="E.g. 20000">
+    </mat-form-field>
+
+    <mat-form-field *ngIf="attributeToUpdate=='color'">
+      <mat-label>Color</mat-label>
+      <input type="text" matInput [(ngModel)]="valueToUpdate" placeholder="E.g. White">
+    </mat-form-field>
+
+    <mat-form-field *ngIf="attributeToUpdate=='assembly'">
+      <mat-label>Assembly</mat-label>
+      <input type="text" matInput [(ngModel)]="valueToUpdate" placeholder="E.g. Local">
+    </mat-form-field>
+
+    <mat-form-field *ngIf="attributeToUpdate=='engine_capacity'">
+      <mat-label>Engine Capacity</mat-label>
+      <input type="text" matInput [(ngModel)]="valueToUpdate" placeholder="E.g. 1000 cc">
+    </mat-form-field>
+
+  </div>
 
 </mat-dialog-content>
 
 <mat-dialog-actions align="center">
-  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button class="mat-raised-button" (click)="update()">Update</button>
 </mat-dialog-actions>
 
 </div>

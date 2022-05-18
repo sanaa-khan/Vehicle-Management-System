@@ -23,6 +23,17 @@ img {
   font-weight: bold;
 }
 
+.update {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.update mat-form-field {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 button {
   background-color: black;
   color: white;
