@@ -55,6 +55,7 @@ export class VehicleAddDialogComponent implements OnInit {
       method: 'POST',
     };
 
+    // send request to API
     fetch('http://localhost:3000/addVehicle?vehicle=' + vehicleJson, requestOptions)
       .then(response => response.text())
       .then(result => {
@@ -62,6 +63,7 @@ export class VehicleAddDialogComponent implements OnInit {
       })
       .catch(error => console.log('error', error));
 
+    // close dialog
     this.dialogRef.close();
   }
 

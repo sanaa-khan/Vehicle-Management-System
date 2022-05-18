@@ -32,12 +32,14 @@ export class VehicleUpdateDialogComponent implements OnInit {
       value: this.valueToUpdate
     };
 
+    // cast json object to string so it can be sent to API
     let jsonObjString = JSON.stringify(jsonObj);
 
     const requestOptions = {
       method: 'POST',
     };
 
+    // send request to API
     fetch('http://localhost:3000/updateVehicle?id=' + this.vehicle._id + "&toupdate=" + jsonObjString, requestOptions)
       .then(response => response.text())
       .then(result => {
@@ -45,6 +47,7 @@ export class VehicleUpdateDialogComponent implements OnInit {
       })
       .catch(error => console.log('error', error));
 
+    // close dialog
     this.dialogRef.close();
   }
 

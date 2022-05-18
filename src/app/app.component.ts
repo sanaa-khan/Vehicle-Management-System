@@ -67,6 +67,7 @@ export class AppComponent {
   ngOnInit(): void {
   }
 
+  // get all vehicle data from database and populate the vehicle array
   getAllVehicles(): void {
 
     this.vehicles = [];
@@ -84,6 +85,7 @@ export class AppComponent {
       .catch(error => console.log('Error: ', error));
   }
 
+  // search through vehicles with the chosen filters
   filterVehicles() {
     console.log(this.selectedCity);
     console.log(this.selectedMake);
@@ -137,6 +139,7 @@ export class AppComponent {
 
   }
 
+  // view details of a vehicle
   openDetailsDialog(selectedVehicle: VEHICLE) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
@@ -149,6 +152,7 @@ export class AppComponent {
     this.viewDialog.open(VehicleDetailsDialogComponent, dialogConfig);
   }
 
+  // update a vehicle
   openUpdateDialog(selectedVehicle: VEHICLE) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
@@ -160,11 +164,13 @@ export class AppComponent {
 
     let dialogRef = this.viewDialog.open(VehicleUpdateDialogComponent, dialogConfig);
 
+    // refresh vehicles
     dialogRef.afterClosed().subscribe(res => {
       this.getAllVehicles();
     })
   }
 
+  // add a vehicle
   openAddDialog() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
@@ -172,11 +178,13 @@ export class AppComponent {
 
     let dialogRef = this.viewDialog.open(VehicleAddDialogComponent, dialogConfig);
 
+    // refresh vehicles
     dialogRef.afterClosed().subscribe(res => {
       this.getAllVehicles();
     })
   }
 
+  // delete a vehicle
   deleteVehicle(selectedVehicle: VEHICLE) {
 
     const requestOptions = {

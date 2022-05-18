@@ -17,8 +17,10 @@ app.use(cors());
 
 // get all vehicle data
 app.get('/getAllVehicles', function (req, res) {
+
   mongoClient.connect(function (err, client) {
     const db = client.db(dbName);
+
     db.collection(vehicleCollectionName)
       .find()
       .toArray(function (err, items) {
@@ -30,9 +32,11 @@ app.get('/getAllVehicles', function (req, res) {
 
 // delete a vehicle
 app.post('/deleteVehicle', function (req, res) {
+
   mongoClient.connect(function (err, client) {
     const db = client.db(dbName);
     const query = { _id: ObjectId(req.query.id) };
+
     db.collection(vehicleCollectionName).deleteOne(query).
     then(result => {
       console.log(result);
@@ -43,7 +47,9 @@ app.post('/deleteVehicle', function (req, res) {
 
 // add a vehicle
 app.post('/addVehicle', function (req, res) {
+  // get json data of new vehicle
   const vehicle = JSON.parse(req.query.vehicle);
+
   mongoClient.connect(function (err, client) {
     const db = client.db(dbName);
     db.collection(vehicleCollectionName).insertOne(vehicle).
@@ -57,10 +63,10 @@ app.post('/addVehicle', function (req, res) {
 // update vehicle
 app.post('/updateVehicle', function (req, res) {
 
+  // get json data for update query
   const toUpdate = JSON.parse(req.query.toupdate);
   const attribute = toUpdate.attribute;
   const value = toUpdate.value;
-
 
   mongoClient.connect(function (err, client) {
     const db = client.db(dbName);
@@ -71,6 +77,7 @@ app.post('/updateVehicle', function (req, res) {
       function (err, result) {
         if (err) throw err;
         console.log("Document Updated Successfully");
+        res.send(result);
       }
     );
   });
