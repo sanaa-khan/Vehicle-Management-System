@@ -57,3 +57,23 @@ button:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.add {
+  margin-bottom: 3%;
+  margin-top: 3%;
+  justify-content: center;
+  align-items: center;
+  display: inline-block;
+  padding: 10px;
+  min-width: 150px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+mat-form-field {
+  margin: 5px;
+}

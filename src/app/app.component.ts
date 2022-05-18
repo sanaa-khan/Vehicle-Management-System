@@ -78,6 +78,7 @@ export class AppComponent {
       .then(response => response.text())
       .then(result => {
         this.vehicles = JSON.parse(result);
+        this.allVehicles = this.vehicles;
       })
       .catch(error => console.log('Error: ', error));
   }
@@ -157,6 +158,12 @@ export class AppComponent {
     dialogConfig.hasBackdrop = true;
 
     this.viewDialog.open(VehicleAddDialogComponent, dialogConfig);
+
+    let dialogRef = this.viewDialog.open(VehicleAddDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(res => {
+      this.getAllVehicles();
+    })
   }
 
   deleteVehicle(selectedVehicle: VEHICLE) {

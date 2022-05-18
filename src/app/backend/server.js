@@ -41,6 +41,19 @@ app.post('/deleteVehicle', function (req, res) {
   });
 })
 
+// add a vehicle
+app.post('/addVehicle', function (req, res) {
+  const vehicle = JSON.parse(req.query.vehicle);
+  mongoClient.connect(function (err, client) {
+    const db = client.db(dbName);
+    db.collection(vehicleCollectionName).insertOne(vehicle).
+    then(result => {
+      console.log(result);
+      res.send(result);
+    });
+  });
+})
+
 // set up server
 module.exports = app;
 app.listen(3000, () =>

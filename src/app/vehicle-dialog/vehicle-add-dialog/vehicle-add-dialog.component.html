@@ -2,44 +2,157 @@
 
 <mat-dialog-content>
 
-  <mat-form-field>
-    <input type="text" matInput [(ngModel)]="vehicle.title" placeholder="Title">
-  </mat-form-field>
-
-  <br>
-
-  <mat-form-field>
-    <input type="text" matInput [(ngModel)]="vehicle.img_path" placeholder="Image Path">
-  </mat-form-field>
-
-  <br>
-
-  <mat-form-field>
-    <input type="number" matInput [(ngModel)]="vehicle.price" placeholder="Price">
-  </mat-form-field>
-
-  <br>
-
-  <mat-form-field>
-    <input type="text" matInput [(ngModel)]="vehicle.location" placeholder="Location">
-  </mat-form-field>
-
-  <br>
-
-  <mat-form-field>
-    <input type="text" matInput [(ngModel)]="vehicle.date" placeholder="Date">
-  </mat-form-field>
-
-  <br>
+  <div class="add">
 
     <mat-form-field>
-    <input type="number" matInput [(ngModel)]="vehicle.rating" placeholder="Rating (/5)">
-  </mat-form-field>
+      <mat-label>Title</mat-label>
+      <input type="text" matInput [(ngModel)]="vehicle.title">
+    </mat-form-field>
 
-  <br>
+    <mat-form-field>
+      <mat-label>Image Path</mat-label>
+      <input type="text" matInput [(ngModel)]="vehicle.img_path" placeholder="./../assets/images/wagonr.jpg">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Price</mat-label>
+      <input type="number"  matInput [(ngModel)]="vehicle.price">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>City</mat-label>
+      <mat-select [(ngModel)]="vehicle.location">
+        <mat-option>None</mat-option>
+        <mat-option value="Islamabad">Islamabad</mat-option>
+        <mat-option value="Rawalpindi">Rawalpindi</mat-option>
+        <mat-option value="Lahore">Lahore</mat-option>
+        <mat-option value="Karachi">Karachi</mat-option>
+        <mat-option value="Peshawar">Peshawar</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Date</mat-label>
+      <input type="number" maxlength=4 matInput [(ngModel)]="vehicle.date">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Rating</mat-label>
+      <mat-select  [(ngModel)]="vehicle.rating">
+        <mat-option>None</mat-option>
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+        <mat-option value="5">5</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Make</mat-label>
+      <mat-select [(ngModel)]="vehicle.make">
+        <mat-option>None</mat-option>
+        <mat-option value="Honda">Honda</mat-option>
+        <mat-option value="Suzuki">Suzuki</mat-option>
+        <mat-option value="Audi">Audi</mat-option>
+        <mat-option value="Diahatsu">Diahatsu</mat-option>
+        <mat-option value="Kia">Kia</mat-option>
+        <mat-option value="Hyundai">Hyundai</mat-option>
+        <mat-option value="Toyota">Toyota</mat-option>
+        <mat-option value="Nissan">Nissan</mat-option>
+        <mat-option value="Mitsubishi">Mitsubishi</mat-option>
+        <mat-option value="Subaru">Subaru</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Type</mat-label>
+      <mat-select [(ngModel)]="vehicle.type">
+        <mat-option>None</mat-option>
+        <mat-option value="Car">Car</mat-option>
+        <mat-option value="Bike">Bike</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Model</mat-label>
+      <input type="text" matInput [(ngModel)]="vehicle.model" placeholder="E.g. VXL">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Year</mat-label>
+      <input type="number" maxlength=4 matInput [(ngModel)]="vehicle.year">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Transmission</mat-label>
+      <input type="text" matInput [(ngModel)]="vehicle.transmission" placeholder="E.g. manual">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Mileage</mat-label>
+      <input type="number" matInput [(ngModel)]="vehicle.mileage" placeholder="E.g. 20000">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Color</mat-label>
+      <input type="text" matInput [(ngModel)]="vehicle.color" placeholder="E.g. White">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Registered In</mat-label>
+      <input type="text" matInput [(ngModel)]="vehicle.registered" placeholder="E.g. Karachi">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Assembly</mat-label>
+      <input type="text" matInput [(ngModel)]="vehicle.assembly" placeholder="E.g. Local">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Engine Capacity</mat-label>
+      <input type="text" matInput [(ngModel)]="vehicle.engine_capacity" placeholder="E.g. 1000 cc">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Features</mat-label>
+      <textarea matInput [(ngModel)]="vehicle.features" placeholder="Ex. AC, Keyless Start..."></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Condition</mat-label>
+      <input type="number" matInput [(ngModel)]="vehicle.condition" placeholder="E.g. 8.1">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Seller Number</mat-label>
+      <input type="text" matInput [(ngModel)]="vehicle.seller_number">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Seller Email</mat-label>
+      <input type="text" matInput [(ngModel)]="vehicle.seller_email">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Seller Location</mat-label>
+      <input type="text" matInput [(ngModel)]="vehicle.seller_location">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Seller Hours</mat-label>
+      <input type="text" matInput [(ngModel)]="vehicle.seller_hours">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Seller Comments</mat-label>
+      <textarea matInput [(ngModel)]="vehicle.seller_comments" placeholder="Ex. Secondhand, good condition..."></textarea>
+    </mat-form-field>
+
+  </div>
 
 </mat-dialog-content>
 
 <mat-dialog-actions align="center">
-  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button class="mat-raised-button" (click)="save()">Save</button>
 </mat-dialog-actions>

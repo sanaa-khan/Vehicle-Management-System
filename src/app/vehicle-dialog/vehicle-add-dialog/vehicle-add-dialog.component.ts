@@ -49,8 +49,19 @@ export class VehicleAddDialogComponent implements OnInit {
   }
 
 
-  close() {
-    console.log(this.vehicle.title);
+  save() {
+    let vehicleJson = JSON.stringify(this.vehicle);
+    const requestOptions = {
+      method: 'POST',
+    };
+
+    fetch('http://localhost:3000/addVehicle?vehicle=' + vehicleJson, requestOptions)
+      .then(response => response.text())
+      .then(result => {
+        console.log(result);
+      })
+      .catch(error => console.log('error', error));
+
     this.dialogRef.close();
   }
 
