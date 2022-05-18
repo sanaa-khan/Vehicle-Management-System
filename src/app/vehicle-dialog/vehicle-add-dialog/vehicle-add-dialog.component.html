@@ -1,1 +1,45 @@
-<p>vehicle-add-dialog works!</p>
+<h2 mat-dialog-title>Add Vehicle</h2>
+
+<mat-dialog-content>
+
+  <mat-form-field>
+    <input type="text" matInput [(ngModel)]="vehicle.title" placeholder="Title">
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input type="text" matInput [(ngModel)]="vehicle.img_path" placeholder="Image Path">
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input type="number" matInput [(ngModel)]="vehicle.price" placeholder="Price">
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input type="text" matInput [(ngModel)]="vehicle.location" placeholder="Location">
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input type="text" matInput [(ngModel)]="vehicle.date" placeholder="Date">
+  </mat-form-field>
+
+  <br>
+
+    <mat-form-field>
+    <input type="number" matInput [(ngModel)]="vehicle.rating" placeholder="Rating (/5)">
+  </mat-form-field>
+
+  <br>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button class="mat-raised-button" (click)="close()">Close</button>
+</mat-dialog-actions>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {VehicleDetailsDialogComponent} from "./vehicle-dialog/vehicle-details-dialog/vehicle-details-dialog.component";
+import {VehicleAddDialogComponent} from "./vehicle-dialog/vehicle-add-dialog/vehicle-add-dialog.component";
 import {Title} from "@angular/platform-browser";
 
 export interface VEHICLE {
@@ -52,7 +53,12 @@ export class AppComponent {
   vehicles: VEHICLE[] = [];
   allVehicles: VEHICLE[] = [];
 
-  constructor(private dialog: MatDialog, private titleService: Title) {
+  constructor(
+    private viewDialog: MatDialog,
+    private updateDialog: MatDialog,
+    private  addDialog: MatDialog,
+    private titleService: Title) {
+
     this.titleService.setTitle("Vehicle Market");
     this.getAllVehicles();
   }
@@ -138,11 +144,19 @@ export class AppComponent {
       vehicle: selectedVehicle
     };
 
-    this.dialog.open(VehicleDetailsDialogComponent, dialogConfig);
+    this.viewDialog.open(VehicleDetailsDialogComponent, dialogConfig);
   }
 
   openUpdateDialog(selectedVehicle: VEHICLE) {
     console.log('in update dialog function');
+  }
+
+  openAddDialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.hasBackdrop = true;
+
+    this.viewDialog.open(VehicleAddDialogComponent, dialogConfig);
   }
 
   deleteVehicle(selectedVehicle: VEHICLE) {
